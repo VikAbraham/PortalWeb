@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head th:replace="~{/fragmentos/head}"></head>
 <nav th:replace="~{/fragmentos/navbar}"></nav>
 
 <body>
-	<h1>Peliculas</h1>
-	<h3>Ingresa una nueva película</h3>
-	<button type="button" class="btn btn-secondary" th:onclick="'location.href=\'/nueva-pelicula\''">Nueva Pelicula</button>
 
-<div th:replace="~{/fragmentos/card-pelicula}"></div>
+	<div class="container-new">
+		<h3>Para ingresar una nueva película</h3>
+	<button type="button" class="btn btn-secondary" th:onclick="'location.href=\'/nueva-pelicula\''">Haz click aquí
+		</button>
+	</div>
+	
+	<div class="pelicula-container">
+		<div th:replace="~{/fragmentos/card-pelicula}"></div>
+	</div>
+
 </html>
