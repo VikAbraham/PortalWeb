@@ -4,11 +4,14 @@
 <nav th:replace="~{/fragmentos/navbar}"></nav>
 
 <body>
-	<h1>Reseñas</h1>
-    <h3>Déjanos tu opinión</h3>
-	<button type="button" class="btn btn-secondary" th:onclick="'location.href=\'/nueva-resena\''">Nueva Reseña</button>
-	<h3>Últimas reseñas</h3>
-<p>Tabla con listar</p>
-<div th:replace="~{/fragmentos/listar-resena}"></div>
+	<div class="container">
+		<h1 class="container">Reseñas</h1>
+	    <h3>Déjanos tu opinión</h3>
+		<button type="button" class="btn btn-secondary" th:onclick="'location.href=\'/nueva-resena\''">Nueva Reseña</button>
+		<h3>Últimas reseñas</h3>
+		<p>Tabla con listar</p>
+		<div th:replace="~{/fragmentos/listar-resena}"></div>  <!--Tabla-->
+	</div>
+	
 
 </html>
