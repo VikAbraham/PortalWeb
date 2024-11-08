@@ -8,8 +8,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="usuario")
 public class Usuario implements Serializable {
 	
 	@Id
@@ -19,7 +21,7 @@ public class Usuario implements Serializable {
     private String correo;
     @Column(name="fecha_nacimiento")
     private Date fechaNacimiento;
-    private String contraseña;
+    private String pass;
 	
 	public Long getId() {
 		return id;
@@ -53,12 +55,12 @@ public class Usuario implements Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public String getContraseña() {
-		return contraseña;
+	public String getPass() {
+		return pass;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
     
     public Usuario() {

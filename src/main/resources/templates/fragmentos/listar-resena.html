@@ -1,0 +1,19 @@
+<table class="table">
+  <thead>
+    <tr>
+	  <th scope="col">Puntuación</th>	
+      <th scope="col">Usuario</th>
+      <th scope="col">Pelicula</th>
+      <th scope="col">Comentario</th>
+	  
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="resena : ${resenas}">
+	  <td th:text="${resena.puntuacion}"></td>		
+      <td th:text="${resena.usuario}"></td>
+      <td th:text="${resena.pelicula}"></td>
+	  <td th:text="${resena.comentario}"></td>
+    </tr>
+  </tbody>
+</table>

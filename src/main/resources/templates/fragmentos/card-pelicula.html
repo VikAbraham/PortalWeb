@@ -1,5 +1,5 @@
 <div th:each="pelicula : ${peliculas}" class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+  <img th:src="${pelicula.imagen}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title" th:text="${pelicula.titulo}"></h5>
     <p class="card-text" th:text="${pelicula.sinopsis}"></p>
@@ -9,8 +9,4 @@
     <li class="list-group-item" th:text="${pelicula.genero}"></li>
     <li class="list-group-item" th:text="${pelicula.duracion}"></li>
   </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
 </div>

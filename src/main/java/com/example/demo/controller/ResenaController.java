@@ -21,6 +21,11 @@ public class ResenaController {
 		List<Resena> resenas = resenaService.findAll();
 		
 		model.addAttribute("resenas",resenas);
-		return "forms/listar_resenas";
+		return "forms/resena";
 	}
+	@GetMapping({"/nueva-resena"})
+		public String nuevaResena() {
+			return "forms/nueva-resena";
+		}
+	
 }

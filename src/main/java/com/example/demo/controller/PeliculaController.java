@@ -15,11 +15,16 @@ public class PeliculaController {
 	@Autowired
 	private PeliculaService peliculaService;
 	
-	@GetMapping({"/listar"})
+	@GetMapping({"/pelicula"})
 	public String listarPeliculas(Model model) {
 		List<Pelicula> peliculas = peliculaService.findAll();
 		
 		model.addAttribute("peliculas",peliculas);
-		return "forms/listar";
+		return "forms/pelicula";
+	}
+	
+	@GetMapping({"/nueva-pelicula"})
+	private String nuevaPelicula() {
+		return "forms/nueva-pelicula";
 	}
 }

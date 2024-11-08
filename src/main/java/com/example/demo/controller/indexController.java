@@ -11,14 +11,4 @@ public class indexController {
 		return "index";
 	}
 	
-	@GetMapping({"formularioUsuario"})
-	public String usuario(Model model) {
-		return "/forms/usuario";
-	}
-	
-	@GetMapping({"formularioResena"})
-	public String resena(Model model) {
-		return "/forms/resena";
-	}
-	
 }

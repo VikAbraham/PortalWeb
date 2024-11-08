@@ -23,4 +23,10 @@ public class UsuarioController {
 		model.addAttribute("usuario",usuarios);
 		return "forms/Listar_suarios";
 	}
+	
+	@GetMapping({"usuario"})
+	public String usuario(Model model) {
+		return "forms/usuario";
+	}
+	
 }
