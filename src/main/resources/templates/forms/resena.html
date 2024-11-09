@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head th:replace="~{/fragmentos/head}"></head>
 <nav th:replace="~{/fragmentos/navbar}"></nav>
 
 <body>
 	<div class="container">
-	    <h3>Déjanos tu opinión</h3>
-		<button type="button" class="btn btn-secondary" th:onclick="'location.href=\'/nueva-resena\''">Nueva Reseña</button>
-		<h3>Últimas reseñas</h3>
-		<div th:replace="~{/fragmentos/listar-resena}"></div>  <!--Tabla-->
+		<div class="container-new">
+			<h3 class="tittle">Déjanos tu opinión</h3>
+			<button type="button" class="btn btn-dark" th:onclick="'location.href=\'/nueva-resena\''">Haz click
+				aquí</button>
+		</div>
+		<h3 class="sub-tittle">Últimas reseñas</h3>
+		<div th:replace="~{/fragmentos/listar-resena}"></div> <!--Tabla-->
 	</div>
-	
+
 
 </html>
