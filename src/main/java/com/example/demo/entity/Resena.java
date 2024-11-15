@@ -1,11 +1,14 @@
 package com.example.demo.entity;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.Calendar;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,8 +22,21 @@ public class Resena implements Serializable{
     private String pelicula;
     private Double puntuacion;
     private String comentario;
+    private Date createAt;
 
+    @PrePersist
+    protected void onCreate() {
+    	this.createAt = Calendar.getInstance().getTime();
+    }
     
+	public Date getCreateAt() {
+		return createAt;
+	}
+
+	public void setCreateAt(Date createAt) {
+		this.createAt = createAt;
+	}
+
 	public Long getId() {
 		return id;
 	}

@@ -1,17 +1,17 @@
-<div class="formulario-form" style="width: 20rem; padding: 20px; margin: auto; border: 1px solid #ccc; border-radius: 8px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);">
-    <form action="" method="post">
-        <label for="nombre" class="label-form">Nombre de la Película</label>
-        <input type="text" id="nombre" name="nombre" class="input-form" required>
+<div class="formulario-form">
+    <form th:action="@{/guardarResena}" method="post" th:object="${resena}">
+        <label for="pelicula" class="label-form">Nombre de la Película</label>
+        <input type="text" th:field="*{pelicula}" id="pelicula" class="input-form" required>
 
-        <label for="comentario" class="label-form">Valoración</label>
-        <input type="text" id="comentario" name="comentario" class="input-form" required>
+        <label for="puntuacion" class="label-form">Valoración</label>
+        <input type="number" th:field="*{puntuacion}" id="puntuacion" class="input-form" required>
 
         <label for="usuario" class="label-form">Usuario</label>
-        <input type="text" id="usuario" name="usuario" class="input-form" required>
+        <input type="text" th:field="*{usuario}" id="usuario" class="input-form" required>
 
-        <label for="valoracion" class="label-form">Comentario</label>
-        <textarea id="valoracion" name="valoracion" rows="4" class="input-form" required></textarea>
-
+        <label for="comentario" class="label-form">Comentario</label>
+        <textarea th:field="*{comentario}" id="comentario" rows="4" class="input-form" required></textarea>
+		<a th:href="@{resena}" type="submit" class="btn btn-dark">Cancelar</a>
         <button type="submit" class="btn btn-dark">Guardar</button>
     </form>
 </div>
