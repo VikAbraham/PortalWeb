@@ -16,8 +16,8 @@
       <td th:text="${resena.pelicula}"></td>
 	  <td th:text="${resena.comentario}"></td>
 	  <td>
-		<a href="#">Editar</a>
-		<a href="#">Eliminar</a>
+		<a th:href="@{'editar/'+${resena.id}}">Editar</a>
+		<a th:href="@{'eliminar/'+${resena.id}}">Eliminar</a>
 	  </td>
     </tr>
   </tbody>

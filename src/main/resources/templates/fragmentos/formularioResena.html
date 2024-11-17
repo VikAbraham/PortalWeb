@@ -1,5 +1,6 @@
 <div class="formulario-form">
-    <form th:action="@{/guardarResena}" method="post" th:object="${resena}">
+    <form th:action="@{/resena/agregar}" method="post" th:object="${resena}">
+		<input type="hidden" th:field="*{id}">
         <label for="pelicula" class="label-form">Nombre de la Película</label>
         <input type="text" th:field="*{pelicula}" id="pelicula" class="input-form" required>
 
@@ -11,7 +12,7 @@
 
         <label for="comentario" class="label-form">Comentario</label>
         <textarea th:field="*{comentario}" id="comentario" rows="4" class="input-form" required></textarea>
-		<a th:href="@{resena}" type="submit" class="btn btn-dark">Cancelar</a>
+		<a th:href="@{/resena/listar}" type="submit" class="btn btn-dark">Cancelar</a>
         <button type="submit" class="btn btn-dark">Guardar</button>
     </form>
 </div>
