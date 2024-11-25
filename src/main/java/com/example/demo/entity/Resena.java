@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Calendar;
 
@@ -10,6 +11,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="resena")
@@ -18,9 +22,14 @@ public class Resena implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	@NotBlank (message="Usuario no debe estar vacío")
 	private String usuario;
+	@NotBlank (message="Debes seleccionar una película")
     private String pelicula;
-    private Double puntuacion;
+	@DecimalMin(value="1", message="mínimo 1")
+	@DecimalMax(value="10", message="máximo 10")
+    private BigDecimal puntuacion;
+	@NotBlank (message="Debes ingresar un comentario")
     private String comentario;
     private Date createAt;
 
@@ -61,11 +70,11 @@ public class Resena implements Serializable{
 		this.pelicula = pelicula;
 	}
 
-	public Double getPuntuacion() {
+	public BigDecimal getPuntuacion() {
 		return puntuacion;
 	}
 
-	public void setPuntuacion(Double puntuacion) {
+	public void setPuntuacion(BigDecimal puntuacion) {
 		this.puntuacion = puntuacion;
 	}
 
