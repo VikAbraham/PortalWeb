@@ -12,8 +12,8 @@
   <tbody>
     <tr th:each="resena : ${resenas}">
 	  <td th:text="${resena.puntuacion}"></td>		
-      <td th:text="${resena.usuario}"></td>
-      <td th:text="${resena.pelicula}"></td>
+      <td th:text="${resena.id_usuario.nombre}"></td>
+      <td th:text="${resena.id_pelicula.titulo}"></td>
 	  <td th:text="${resena.comentario}"></td>
 	  <td>
 		<a th:href="@{'editar/'+${resena.id}}">Editar</a>

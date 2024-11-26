@@ -1,3 +1,8 @@
+INSERT INTO usuario (nombre, correo, fecha_nacimiento, pass)
+VALUES
+    ('Victor Silva', 'juan@example.com', '1990-01-01', 'contraseña123'),
+    ('Sebastian Arriagada', 'ana@example.com', '1985-05-15', 'password456');
+
 INSERT INTO pelicula (titulo, anio, director, genero, sinopsis, duracion, imagen, create_at)
 VALUES
   ('El Padrino', 1972, 'Francis Ford Coppola', 'Drama', 'El patriarca envejecido de una dinastía del crimen organizado transfiere el control de su imperio clandestino a su hijo reacio.', 175, 'https://chileposter.cl/wp-content/uploads/2023/11/EL-PADRINO-EDICION-ESPECIAL-.jpg', '1972-03-14'),
@@ -10,12 +15,9 @@ VALUES
 
   ('Origen', 2010, 'Christopher Nolan', 'Acción, Crimen, Thriller, Ciencia Ficción', 'Un ladrón profesional que roba secretos corporativos mediante el uso de tecnología de compartición de sueños recibe la tarea inversa de implantar una idea en la mente de un CEO.', 148, '//www.originalfilmart.com/cdn/shop/products/inception_2010_imax_original_film_art_5000x.jpg?v=1551890318', '2023-11-07');
 
-INSERT INTO resena (usuario, pelicula, puntuacion, comentario)
+
+INSERT INTO resena (id_usuario, id_pelicula, puntuacion, comentario)
 VALUES 
-    ('Juan Pérez', 'El Padrino', 5.0, 'Una obra maestra'),
-    ('Ana López', 'Pulp Fiction', 4.5, 'Muy original');
+    (1, 1, 5.0, 'Una obra maestra'),
+    (2, 4, 4.5, 'Muy original');
     
-INSERT INTO usuario (nombre, correo, fecha_nacimiento, pass)
-VALUES
-    ('Juan Pérez', 'juan@example.com', '1990-01-01', 'contraseña123'),
-    ('Ana López', 'ana@example.com', '1985-05-15', 'password456');

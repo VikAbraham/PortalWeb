@@ -13,7 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.entity.Resena;
+import com.example.demo.entity.Usuario;
+import com.example.demo.entity.Pelicula;
 import com.example.demo.serviceImpl.ResenaServiceImpl;
+import com.example.demo.serviceImpl.UsuarioServiceImpl;
+import com.example.demo.serviceImpl.PeliculaServiceImpl;
 
 import jakarta.validation.Valid;
 
@@ -30,7 +34,11 @@ public class ResenaController {
 
 	@Autowired
 	private ResenaServiceImpl resenaService;
-
+	@Autowired
+	private UsuarioServiceImpl usuarioService;
+	@Autowired
+	private PeliculaServiceImpl peliculaService; 
+	
 	/**
 	 * Endpoint que maneja la ruta del navbar hacia Resenas y lista todas las
 	 * reseñas desde data.sql
@@ -42,7 +50,10 @@ public class ResenaController {
 	@GetMapping({ "/listar" })
 	public String listarResena(Model model) {
 		List<Resena> resenas = resenaService.findAll();
-
+		for(Resena resena : resenas) {
+			System.out.println(resena.getId_pelicula().getTitulo());
+			System.out.println(resena.getId_usuario().getNombre());
+		}
 		model.addAttribute("resenas", resenas);
 		return "forms/resena";
 	}
@@ -56,6 +67,17 @@ public class ResenaController {
 	@GetMapping({ "/nuevaResena" })
 	public String nuevaResena(Model model) {
 		model.addAttribute("titulo", "Nueva Reseña");
+		
+		//Obtener listado usuarios para seleccionar al crear
+		
+		List<Usuario> usuarios = usuarioService.findAll();
+		model.addAttribute("usuarios", usuarios);
+		
+		//Obtener listado de peliculas para seleccionar en la reseña
+		
+		List<Pelicula> peliculas = peliculaService.findAll();
+		model.addAttribute("peliculas", peliculas);
+		
 		model.addAttribute("resena", new Resena());
 		return "forms/nueva-resena";
 	}
@@ -81,6 +103,13 @@ public class ResenaController {
 		Resena resena = resenaService.findOne(id);
 		if(resena !=  null) {
 			model.addAttribute("resena", resena);
+			// Obtener la lista de usuarios y películas para el select
+	        List<Usuario> usuarios = usuarioService.findAll();
+	        List<Pelicula> peliculas = peliculaService.findAll();
+	        
+	        model.addAttribute("usuarios", usuarios);
+	        model.addAttribute("peliculas", peliculas);
+	        
 			return "forms/nueva-resena";
 		}else {
 			flash.addFlashAttribute("error", "El ID del coctel no existe");
@@ -96,7 +125,7 @@ public class ResenaController {
 			flash.addFlashAttribute("success", "Reseña eliminada");
 			return "redirect:/resena/listar";
 		}else {
-			flash.addFlashAttribute("error", "No se pudo eliminar");
+			flash.addFlashAttribute("warning", "No se pudo eliminar");
 			return "redirect:/resena/listar";
 		}
 	}

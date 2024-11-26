@@ -9,11 +9,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name="resena")
@@ -22,13 +25,21 @@ public class Resena implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	@NotBlank (message="Usuario no debe estar vacío")
-	private String usuario;
-	@NotBlank (message="Debes seleccionar una película")
-    private String pelicula;
+	
+	@ManyToOne
+	@JoinColumn(name="id_usuario")
+	@NotNull (message="Usuario no debe estar vacío")
+	private Usuario id_usuario;
+	
+	@ManyToOne
+	@JoinColumn(name="id_pelicula")
+	@NotNull (message="Debes seleccionar una película")
+    private Pelicula id_pelicula;
+	
 	@DecimalMin(value="1", message="mínimo 1")
 	@DecimalMax(value="10", message="máximo 10")
     private BigDecimal puntuacion;
+	
 	@NotBlank (message="Debes ingresar un comentario")
     private String comentario;
     private Date createAt;
@@ -54,20 +65,21 @@ public class Resena implements Serializable{
 		this.id = id;
 	}
 
-	public String getUsuario() {
-		return usuario;
+
+	public Usuario getId_usuario() {
+		return id_usuario;
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setId_usuario(Usuario id_usuario) {
+		this.id_usuario = id_usuario;
 	}
 
-	public String getPelicula() {
-		return pelicula;
+	public Pelicula getId_pelicula() {
+		return id_pelicula;
 	}
 
-	public void setPelicula(String pelicula) {
-		this.pelicula = pelicula;
+	public void setId_pelicula(Pelicula id_pelicula) {
+		this.id_pelicula = id_pelicula;
 	}
 
 	public BigDecimal getPuntuacion() {
