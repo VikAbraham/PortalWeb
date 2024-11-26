@@ -17,6 +17,7 @@ import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="resena")
@@ -41,6 +42,7 @@ public class Resena implements Serializable{
 	@DecimalMax(value="10", message="Vaya que te gustó! pero el máximo es 10")
     private BigDecimal puntuacion;
 	
+	@Size(max=256, message="La reseña no puede superar los 256 caracteres, favor sea más conciso")
 	@NotBlank (message="Debes ingresar un comentario")
     private String comentario;
     private Date createAt;

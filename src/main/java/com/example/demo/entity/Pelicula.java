@@ -39,6 +39,7 @@ public class Pelicula implements Serializable{
 	@NotBlank (message="Debes agregar el género de la película")
 	private String genero;
 	
+	@Size(max=256, message="La sinopsis no puede superar los 256 caracteres, favor sea más conciso")
 	@NotBlank (message="Debes agregar la sinopsis de la película")
 	private String sinopsis;
 	
@@ -47,8 +48,10 @@ public class Pelicula implements Serializable{
 	@Max(value=1000, message="El límite de tiempo son 1000 minutos")
 	private Long duracion;
 	
+	@Size(max=256, message="La URL no puede superar los 256 caracteres, acorta a url o busca otra imágen")
 	@NotBlank (message="Debes agregar la url de la película")
 	private String imagen;
+	
 	@Column (name="create_at")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createAt;
