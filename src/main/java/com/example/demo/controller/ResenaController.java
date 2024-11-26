@@ -119,7 +119,7 @@ public class ResenaController {
 	        
 			return "forms/nueva-resena";
 		}else {
-			flash.addFlashAttribute("error", "El ID del coctel no existe");
+			flash.addFlashAttribute("error", "El ID de la reseña no existe");
 			return "redirect:/resena/listar";
 		}
 	}

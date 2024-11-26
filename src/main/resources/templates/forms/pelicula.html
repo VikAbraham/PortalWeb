@@ -2,13 +2,14 @@
 <html lang="es">
 
 <head th:replace="~{/fragmentos/head}"></head>
-<nav th:replace="~{/fragmentos/navbar}"></nav>
 
 <body>
+	<nav th:replace="~{/fragmentos/navbar}"></nav>
+	<header th:replace="~{/fragmentos/content-header}"></header>
 
 	<div class="container-new">
 		<h3 class="tittle">Para ingresar una nueva película</h3>
-	<button type="button" class="btn btn-dark" th:onclick="'location.href=\'/nueva-pelicula\''">Haz click aquí
+	<button type="button" class="btn btn-dark" th:onclick="'location.href=\'/pelicula/nueva-pelicula\''">Haz click aquí
 		</button>
 	</div>
 	
