@@ -1,0 +1,9 @@
+<div th:fragment="content-header" class="content-header">
+	<div class="container-fluid">
+		<div class="row mb-2">
+			<div class="col-12 alert alert-success" th:if="${success != null}" role="alert" th:text="${success}" style="background-color: #d4edda;color: #155724"></div>
+			<div class="col-12 alert alert-danger" th:if="${error != null}" role="alert" th:text="${error}" style="background-color: #f8d7da;color: #721c24"></div>
+			<div class="col-12 alert alert-warning" th:if="${warning != null}" role="alert" th:text="${warning}" style="background-color: #fff3cd;color: #856404"></div>
+		</div>
+	</div>
+</div>

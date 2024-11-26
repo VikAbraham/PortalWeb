@@ -1,16 +1,17 @@
-<div th:each="pelicula : ${peliculas}" class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title" th:text="${pelicula.titulo}"></h5>
-    <p class="card-text" th:text="${pelicula.sinopsis}"></p>
-  </div>
-  <ul  class="list-group list-group-flush">
-    <li class="list-group-item" th:text="${pelicula.director}"></li>
-    <li class="list-group-item" th:text="${pelicula.genero}"></li>
-    <li class="list-group-item" th:text="${pelicula.duracion}"></li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
+<div class="card-container" th:each="pelicula : ${peliculas}">
+	<div class="header">
+		<a><img th:src="${pelicula.imagen}" alt="Imagen de ${pelicula.titulo}"></a>
+		<br>
+		<h3 class="list-group-item" th:text="${pelicula.titulo}"></h3>
+	</div>
+	<div class="descripcion">
+		<h5 class="card-tittle">Director:</h5>
+		<p th:text="${pelicula.director}"></p>
+		<h5 class="card-tittle">Genero:</h5>
+		<p th:text="${pelicula.genero}"></p>
+		<h5 class="card-tittle">Duración:</h5>
+		<p th:text="${pelicula.duracion}"></p>
+		<h5 class="card-tittle">Sinópsis:</h5>
+		<p th:text="${pelicula.sinopsis}"></p>
+	</div>
 </div>

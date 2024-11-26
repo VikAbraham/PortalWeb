@@ -89,6 +89,13 @@ public class ResenaController {
 			model.addAttribute("titulo", "Crear nueva reseña");
 			System.out.println("Error");
 			System.out.println(result.toString());
+			
+			//Nombre de usuario y pelicula disponibles cuando de error y se completen los campos
+			
+			List<Usuario> usuarios = usuarioService.findAll();
+			model.addAttribute("usuarios", usuarios);		
+			List<Pelicula> peliculas = peliculaService.findAll();
+			model.addAttribute("peliculas", peliculas);
 			return "forms/nueva-resena"; 
 		}
 		flash.addFlashAttribute("success", "Reseña agregada exitosamente");

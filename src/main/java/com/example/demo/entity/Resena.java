@@ -36,8 +36,9 @@ public class Resena implements Serializable{
 	@NotNull (message="Debes seleccionar una película")
     private Pelicula id_pelicula;
 	
-	@DecimalMin(value="1", message="mínimo 1")
-	@DecimalMax(value="10", message="máximo 10")
+	@NotNull (message="Debes ingresar una puntuación entre 1 y 10")
+	@DecimalMin(value="1", message="Sé que no te gustó pero el mínimo es 1")
+	@DecimalMax(value="10", message="Vaya que te gustó! pero el máximo es 10")
     private BigDecimal puntuacion;
 	
 	@NotBlank (message="Debes ingresar un comentario")

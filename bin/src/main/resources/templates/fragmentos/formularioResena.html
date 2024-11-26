@@ -1,0 +1,29 @@
+<div class="formulario-form">
+	<form th:action="@{/resena/agregar}" method="post" th:object="${resena}">
+		<input type="hidden" th:field="*{id}">
+		<div>
+			<label for="pelicula" class="label-form">Nombre de la Película</label>
+			<input type="text" th:field="*{pelicula}" id="pelicula" class="input-form">
+			<small class="form-text text-danger" th:if="${#fields.hasErrors('pelicula')}"th:errors="*{pelicula}"></small>
+		</div>
+		<div>
+			<label for="puntuacion" class="label-form">Valoración</label>
+			<input type="number" th:field="*{puntuacion}" id="puntuacion" class="input-form" step="0.1" min="1" max="10">
+			<small class="form-text text-danger" th:if="${#fields.hasErrors('puntuacion')}"th:errors="*{puntuacion}"></small>
+		</div>
+
+		<div>
+			<label for="usuario" class="label-form">Usuario</label>
+			<input type="text" th:field="*{usuario}" id="usuario" class="input-form">
+			<small class="form-text text-danger" th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}"></small>
+		</div>
+		<div>
+			<label for="comentario" class="label-form">Comentario</label>
+			<textarea th:field="*{comentario}" id="comentario" rows="4" class="input-form"></textarea>
+			<small class="form-text text-danger" th:if="${#fields.hasErrors('comentario')}"th:errors="*{comentario}"></small>
+		</div>
+
+		<a th:href="@{/resena/listar}" type="submit" class="btn btn-dark">Cancelar</a>
+		<button type="submit" class="btn btn-dark">Guardar</button>
+	</form>
+</div>

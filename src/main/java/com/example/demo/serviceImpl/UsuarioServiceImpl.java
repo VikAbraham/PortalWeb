@@ -13,6 +13,7 @@ import jakarta.transaction.Transactional;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
+	
 	@Autowired
 	private IUsuarioDao usuarioDao;
 	

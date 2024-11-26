@@ -19,7 +19,6 @@ public class ResenaServiceImpl implements ResenaService {
 	
 	@Transactional
 	public List<Resena> findAll() {
-		// TODO Auto-generated method stub
 		return (List<Resena>) resenaDao.findAll();
 	}
 

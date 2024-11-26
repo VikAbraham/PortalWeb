@@ -5,10 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.demo.entity.Resena;
 import com.example.demo.entity.Usuario;
-import com.example.demo.service.UsuarioService;
+import com.example.demo.serviceImpl.UsuarioServiceImpl;
+
+import jakarta.validation.Valid;
 
 /**
  * Controlador para manejar solicitudes HTTP relacionados con el Entity Usuario.java
@@ -16,11 +23,13 @@ import com.example.demo.service.UsuarioService;
  * */
 
 @Controller
+@RequestMapping ("/usuario")
 public class UsuarioController {
 	
 	@Autowired
-	private UsuarioService usuarioService;
+	private UsuarioServiceImpl usuarioService;
 	
+
 	/**
 	 * Endpoint que maneja la ruta del navbar hacia Usuarios y lista todos los usuarios desde data.sql
 	 * 
@@ -36,6 +45,7 @@ public class UsuarioController {
 		model.addAttribute("usuario",usuarios);
 		return "/index";
 	}
+	
 	/**
 	 *Endpoint que maneja la ruta del navbar,
 	 *
@@ -43,9 +53,24 @@ public class UsuarioController {
 	 * 
 	 **/
 	
-	@GetMapping({"usuario"})
-	public String usuario(Model model) {
-		return "forms/usuario";
+	@GetMapping("/registrar")
+	public String mostrarFormulario(Model model) {
+	    model.addAttribute("usuario", new Usuario());
+	    return "forms/nuevo-usuario"; 
 	}
+	
+	@PostMapping("/agregar")
+	public String guardarUsuario(@Valid Usuario usuario, BindingResult result, Model model, RedirectAttributes flash) {
+		if(result.hasErrors()) {
+			System.out.println("Error");
+			System.out.println(result.toString());
+			model.addAttribute("usuario", usuario);
+			return "forms/nuevo-usuario"; 
+		}
+		flash.addFlashAttribute("success", "Usuario creado exitosamente");
+		usuarioService.save(usuario);
+		return "redirect:/index";
+	}
+
 	
 }
