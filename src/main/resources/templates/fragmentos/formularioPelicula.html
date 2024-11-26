@@ -3,44 +3,44 @@
 		<input type="hidden" th:field="*{id}">
 		<div>
 			<label for="titulo" class="label-form">Título</label>
-			<input type="text" th:field="*{titulo}" id="titulo" name="titulo" class="input-form" >
+			<input type="text" th:field="*{titulo}" id="titulo" name="titulo" class="input-form" required>
 			<small class="form-text text-danger" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></small>
 		</div>
 
 		<div>
 			<label for="año" class="label-form">Año</label>
-			<input type="number" th:field="*{anio}" id="año" name="año" class="input-form" >
+			<input type="number" th:field="*{anio}" id="año" name="año" class="input-form" required>
 			<small class="form-text text-danger" th:if="${#fields.hasErrors('anio')}" th:errors="*{anio}"></small>
 		</div>
 
 		<div>
 			<label for="directores" class="label-form">Director</label>
-			<input type="text" th:field="*{director}" id="directores" name="directores" class="input-form" >
+			<input type="text" th:field="*{director}" id="directores" name="directores" class="input-form" required>
 			<small class="form-text text-danger" th:if="${#fields.hasErrors('director')}" th:errors="*{director}"></small>
 
 		</div>
 
 		<div>
 			<label for="genero" class="label-form">Género</label>
-			<input type="text" th:field="*{genero}" id="genero" name="genero" class="input-form" >
+			<input type="text" th:field="*{genero}" id="genero" name="genero" class="input-form" required>
 			<small class="form-text text-danger" th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}"></small>
 
 		</div>
 		<div>
 			<label for="duracion" class="label-form">Duración</label>
-			<input type="number" th:field="*{duracion}" id="duracion" name="duracion" class="input-form" >
+			<input type="number" th:field="*{duracion}" id="duracion" name="duracion" class="input-form" required>
 			<small class="form-text text-danger" th:if="${#fields.hasErrors('duracion')}" th:errors="*{duracion}"></small>
 		</div>
 
 		<div>
 			<label for="sinopsis" class="label-form">Sinopsis</label>
-			<textarea th:field="*{sinopsis}" id="sinopsis" name="sinopsis" rows="4" class="input-form" ></textarea>
+			<textarea th:field="*{sinopsis}" id="sinopsis" name="sinopsis" rows="4" class="input-form" required></textarea>
 			<small class="form-text text-danger" th:if="${#fields.hasErrors('sinopsis')}" th:errors="*{sinopsis}"></small>
 
 		</div>
 		<div>
 			<label for="imagen_url" class="label-form">URL Imagen</label>
-			<input type="text" th:field="*{imagen}" id="imagen_url" name="imagen_url" class="input-form" >
+			<input type="text" th:field="*{imagen}" id="imagen_url" name="imagen_url" class="input-form" required>
 			<small class="form-text text-danger" th:if="${#fields.hasErrors('imagen')}" th:errors="*{imagen}"></small>
 		</div>
 
