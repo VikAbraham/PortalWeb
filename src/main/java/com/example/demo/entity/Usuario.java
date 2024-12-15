@@ -38,6 +38,17 @@ public class Usuario implements Serializable {
 	@NotBlank (message="Debe ingresar una contraseña")
     private String pass;
 	
+	@NotBlank (message="Debe ingresar una contraseña")
+    private String rol;
+	
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+
 	public Long getId() {
 		return id;
 	}

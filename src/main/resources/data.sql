@@ -1,7 +1,7 @@
-INSERT INTO usuario (nombre, correo, fecha_nacimiento, pass)
+INSERT INTO usuario (nombre, correo, fecha_nacimiento, pass, rol)
 VALUES
-    ('Victor Silva', 'juan@example.com', '1990-01-01', 'contraseña123'),
-    ('Sebastian Arriagada', 'ana@example.com', '1985-05-15', 'password456');
+    ('Victor', 'juan@example.com', '1990-01-01', '$2a$10$GEDoA8/li8.Hp4hXMCK3v.H9DhM4tbXOZE1B3y4qvl3h9tRVhKkEG', 'ADMIN'),
+    ('Sebastian', 'ana@example.com', '1985-05-15', '$2a$10$GEDoA8/li8.Hp4hXMCK3v.H9DhM4tbXOZE1B3y4qvl3h9tRVhKkEG', 'USER');
 
 INSERT INTO pelicula (titulo, anio, director, genero, sinopsis, duracion, imagen, create_at)
 VALUES

@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,7 +30,8 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioServiceImpl usuarioService;
 	
-
+	@Autowired // Inject the password encoder bean
+    private BCryptPasswordEncoder passwordEncoder;
 	/**
 	 * Endpoint que maneja la ruta del navbar hacia Usuarios y lista todos los usuarios desde data.sql
 	 * 
@@ -67,8 +69,12 @@ public class UsuarioController {
 			model.addAttribute("usuario", usuario);
 			return "forms/nuevo-usuario"; 
 		}
-		flash.addFlashAttribute("success", "Usuario creado exitosamente");
+		usuario.setPass(passwordEncoder.encode(usuario.getPass()));
+		
 		usuarioService.save(usuario);
+		System.out.println(usuario.getNombre());
+		System.out.println(usuario.getPass());
+		flash.addFlashAttribute("success", "Usuario creado exitosamente");
 		return "redirect:/index";
 	}
 

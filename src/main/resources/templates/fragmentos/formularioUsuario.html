@@ -14,14 +14,25 @@
 
 		<div>
 			<label for="fechaNacimiento" class="label-form">Fecha de Nacimiento</label>
-			<input type="date" th:field="*{fechaNacimiento}" id="fechaNacimiento" name="fechaNacimiento" class="input-form" required>
-			<small class="form-text text-danger" th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></small>
+			<input type="date" th:field="*{fechaNacimiento}" id="fechaNacimiento" name="fechaNacimiento"
+				class="input-form" required>
+			<small class="form-text text-danger" th:if="${#fields.hasErrors('fechaNacimiento')}"
+				th:errors="*{fechaNacimiento}"></small>
 		</div>
 
 		<div>
 			<label for="pass" class="label-form">Elige una Contraseña</label>
 			<input type="password" th:field="*{pass}" id="contrasena" name="pass" class="input-form" required>
 			<small class="form-text text-danger" th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}"></small>
+		</div>
+		<div>
+			<label for="pass" class="label-form">Elige un ROL</label>
+			<select th:field="*{rol}" id="rol" name="rol" class="input-form" required>
+				<option value="">Seleccione un rol</option>
+				<option value="ADMIN">Administrador</option>
+				<option value="USER">Usuario</option>
+			</select>
+			<small class="form-text text-danger" th:if="${#fields.hasErrors('rol')}" th:errors="*{rol}"></small>
 		</div>
 
 

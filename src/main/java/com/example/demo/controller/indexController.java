@@ -19,5 +19,6 @@ public class indexController {
 	public String inicio(Model model) {
 		return "index";
 	}
+
 	
 }
