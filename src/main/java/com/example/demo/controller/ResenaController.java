@@ -90,7 +90,7 @@ public class ResenaController {
 			System.out.println("Error");
 			System.out.println(result.toString());
 			
-			//Nombre de usuario y pelicula disponibles cuando de error y se completen los campos
+			//Se completan nuevamente los campos Nombre de usuario y pelicula en caso de error, para que vuelvan a estar disponibles
 			
 			List<Usuario> usuarios = usuarioService.findAll();
 			model.addAttribute("usuarios", usuarios);		
